@@ -79,7 +79,7 @@ namespace DotnetIteration
         // 
         public static IEnumerable<int> OnlyTheEvenIndexedSurvive(List<int> numbers)
         {
-            var onlyEvenIndexes = numbers.Where((numbers, index) => index % 2 == 0);
+            var onlyEvenIndexes = numbers.Where((number, index) => index % 2 == 0);
             return onlyEvenIndexes;
             // throw new System.NotImplementedException();
         }
@@ -100,9 +100,8 @@ namespace DotnetIteration
         public static IEnumerable<string> BestMovieOfTheYear(List<Movie> movies, int yearToMatch)
         {
             // Is there a way to do this in one line?
-            var bestMovies = movies.Where(movie => movie.Year == yearToMatch && movie.Score > 90);
-            var newList = bestMovies.Select(movie => movie.Name);
-            return newList;
+            var bestMovies = movies.Where(movie => movie.Year == yearToMatch && movie.Score > 90).Select(movies => movies.Name);
+            return bestMovies;
             // throw new System.NotImplementedException();
         }
 
